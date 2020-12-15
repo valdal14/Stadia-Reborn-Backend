@@ -1,5 +1,4 @@
 require("dotenv").config();
-const sha256 = require('crypto-js/hmac-sha1');
 const mysql = require('mysql');
 
 class DatabaseManager {
@@ -11,6 +10,7 @@ class DatabaseManager {
             password : process.env.DB_PASSWORD,
             database : process.env.DATABASE
         });
+        this.storeProcedureLogin = "CALL userLogin(?,?)";
     }
     
     testConnection = ()=> {

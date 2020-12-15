@@ -1,7 +1,9 @@
 require("dotenv").config();
+const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-const DatabaseManager  = require('./stadia');
+const DatabaseManager  = require('./dbManager');
+const user = require('./user');
 
 const app = express();
 
@@ -11,7 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// cors config
+app.use(cors());
+
+app.post('/login', (req, res)=>{
+    user.login(req, res);
+});
+
 app.listen(process.env.PORT, function() {
     console.log("Server Started at port " + process.env.PORT);
-    DatabaseManager.testConnection();
 });

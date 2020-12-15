@@ -10,22 +10,8 @@ class DatabaseManager {
             password : process.env.DB_PASSWORD,
             database : process.env.DATABASE
         });
-        this.storeProcedureLogin = "CALL userLogin(?,?)";
-    }
-    
-    testConnection = ()=> {
-        try {
-            this.connection.connect();
-        
-            this.connection.query('SELECT * FROM Stadia.Users', function (error, results, fields) {
-            if (error) throw error;
-            console.log('The solution is: ', results[0]);
-            });
-            
-            this.connection.end();
-        } catch (error) {
-            throw new Error('Database Connection error: ' + error);
-        }
+        this.SPLogin = "CALL userLogin(?,?)";
+        this.SPGetUserDataAndGames = "CALL getUserDataAndGames(?)";
     }
 }
 

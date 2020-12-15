@@ -20,6 +20,10 @@ app.post('/login', (req, res)=>{
     user.login(req, res);
 });
 
+app.post('/ownedgames', (req, res)=>{
+    user.getOwnedGames(req, res);
+})
+
 app.listen(process.env.PORT, function() {
     console.log("Server Started at port " + process.env.PORT);
 });

@@ -40,7 +40,7 @@ class User {
             }
 
         } else {
-            res.status('401').send({ response: 'Error code 1401: Invalid credentials'})
+            res.status('401').send({ error: 'Error code 1401: Invalid credentials'})
         }
     }
 
@@ -81,7 +81,7 @@ class User {
                 });
             }
         } else {
-            res.status('401').send({ response: 'Error code 1405: Invalid username'})
+            res.status('401').send({ error: 'Error code 1405: Invalid username'})
         }
     }
 }

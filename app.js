@@ -24,6 +24,11 @@ app.post('/ownedgames', (req, res)=>{
     user.getOwnedGames(req, res);
 })
 
+app.post('/games', (req, res)=>{
+    user.getAllGames(req, res);
+})
+
+
 app.listen(process.env.PORT, function() {
     console.log("Server Started at port " + process.env.PORT);
 });

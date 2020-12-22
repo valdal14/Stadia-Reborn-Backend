@@ -13,6 +13,7 @@ class DatabaseManager {
         this.SPLogin = "CALL userLogin(?,?)";
         this.SPGetUserDataAndGames = "CALL getUserDataAndGames(?)";
         this.SPGelAllGames = "CALL getAllGames(?)";
+        this.SPSearchForGames = "CALL searchForGames(?)"; 
     }
 }
 

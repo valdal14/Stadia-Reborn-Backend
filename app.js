@@ -28,6 +28,10 @@ app.post('/games', (req, res)=>{
     user.getAllGames(req, res);
 })
 
+app.post('/searchgames', (req, res)=>{
+    user.searchForGames(req, res);
+})
+
 
 app.listen(process.env.PORT, function() {
     console.log("Server Started at port " + process.env.PORT);

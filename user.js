@@ -34,7 +34,7 @@ class User {
             } catch (error) {
                 res.status(501).send({
                     error:
-                      "Error code 1403: There was a problem connecting with the Database: " +
+                      "Error code 1402: There was a problem connecting with the Database: " +
                       error,
                 });
             }
@@ -76,7 +76,7 @@ class User {
             } catch (error) {
                 res.status(501).send({
                     error:
-                      "Error code 1403: There was a problem connecting with the Database: " +
+                      "Error code 1402: There was a problem connecting with the Database: " +
                       error,
                 });
             }
@@ -117,7 +117,7 @@ class User {
           } catch (error) {
               res.status(501).send({
                   error:
-                    "Error code 1403: There was a problem connecting with the Database: " +
+                    "Error code 1402: There was a problem connecting with the Database: " +
                     error,
               });
           }
@@ -158,7 +158,7 @@ class User {
       } catch (error) {
         res.status(501).send({
           error:
-            "Error code 1403: There was a problem connecting with the Database: " +
+            "Error code 1402: There was a problem connecting with the Database: " +
             error,
       });
       }

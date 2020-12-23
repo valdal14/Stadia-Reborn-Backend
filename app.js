@@ -2,7 +2,6 @@ require("dotenv").config();
 const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-const DatabaseManager  = require('./dbManager');
 const user = require('./user');
 
 const app = express();
@@ -31,7 +30,6 @@ app.post('/games', (req, res)=>{
 app.post('/searchgames', (req, res)=>{
     user.searchForGames(req, res);
 })
-
 
 app.listen(process.env.PORT, function() {
     console.log("Server Started at port " + process.env.PORT);

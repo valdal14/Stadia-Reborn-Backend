@@ -2,7 +2,7 @@ require("dotenv").config();
 const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-const user = require('./user');
+const DbManager = require('./dbManager');
 
 const app = express();
 
@@ -16,19 +16,35 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/login', (req, res)=>{
-    user.login(req, res);
+    DbManager.executeQuery(req).then(data => {
+        res.status(201).send(data);
+    }).catch(error =>{
+        DbManager.submitError(res, error);
+    })
 });
 
 app.post('/ownedgames', (req, res)=>{
-    user.getOwnedGames(req, res);
+    DbManager.executeQuery(req).then(data => {
+        res.status(201).send(data);
+    }).catch(error =>{
+        DbManager.submitError(res, error);
+    })
 })
 
 app.post('/games', (req, res)=>{
-    user.getAllGames(req, res);
+    DbManager.executeQuery(req).then(data => {
+        res.status(201).send(data);
+    }).catch(error =>{
+        DbManager.submitError(res, error);
+    })
 })
 
 app.post('/searchgames', (req, res)=>{
-    user.searchForGames(req, res);
+    DbManager.executeQuery(req).then(data => {
+        res.status(201).send(data);
+    }).catch(error =>{
+        DbManager.submitError(res, error);
+    })
 })
 
 app.listen(process.env.PORT, function() {
